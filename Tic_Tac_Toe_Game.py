@@ -101,7 +101,7 @@ def Available_Positions():
     for i in FollowUpPositions:
         if not FollowUpPositions[i]:
             Avail_Positions.append(i)
-    print(f'You are able to place only in these Positions: {Avail_Positions}')
+
 
 def setDataToGame(Position):
     global PLAYER1_TURN
@@ -213,6 +213,12 @@ def main():
 
     while True:
         Available_Positions()
+        if not Avail_Positions:
+            print('Match Draw!')
+            break
+        else:
+            print(f'You are able to place only in these Positions: {Avail_Positions}')
+
         while not PLAYER1_TURN:
             print(f'Hey {PLAYER1_NAME}, Choose one Position to Place the symbol: ')
             choice = input()
@@ -226,6 +232,12 @@ def main():
         if DisplayWinner(winner):break
 
         Available_Positions()
+        if not Avail_Positions:
+            print('Match Draw!')
+            break
+        else:
+            print(f'You are able to place only in these Positions: {Avail_Positions}')
+
         while not PLAYER2_TURN:
             print(f'Hey {PLAYER2_NAME}, Choose one Position to Place the symbol: ')
             choice = input()
